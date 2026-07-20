@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jonathan Verstraeten — Trading</title>
+<meta name="description" content="I trade from Dubai, full-time, with my own capital on the line every single day. This group gets every position I open.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   JONATHAN VERSTRAETEN · landing de captación (ads → Telegram)
+
+   ESTRUCTURA  = réplica de la referencia (fred-frost): mismo orden de
+                 secciones, nav de 4, pill CTA, franjas de prueba social.
+   ESTILO      = el Framer real de Jonathan: navy profundo, azul eléctrico
+                 con glow, ticker superior, paneles con borde azul.
+   CONTENIDO   = el REAL de Jonathan donde existe · PLACEHOLDER marcado
+                 donde no tenemos el activo. Cero datos inventados.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root{
+  --bg:#060912;
+  --bg-2:#080D19;
+  --panel:#0C1422;
+  --panel-2:#101A2C;
+  --line:#1B2740;
+  --line-glow:rgba(47,128,255,.30);
+  --blue:#2F80FF;
+  --blue-lt:#5AA0FF;
+  --blue-deep:#1E63D6;
+  --white:#FFFFFF;
+  --text:#C3CEDF;
+  --muted:#8494AC;
+  --green:#22C55E;
+  --red:#EF4444;
+  --ph-line:rgba(47,128,255,.42);
+  --ph-bg:rgba(47,128,255,.05);
+  --max:1200px;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:Poppins,system-ui,-apple-system,sans-serif;
+  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block}
+a{color:inherit}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 28px}
+h1,h2,h3{margin:0; color:var(--white); font-weight:700; line-height:1.16; letter-spacing:-.02em}
+h1{font-size:clamp(32px,4.3vw,52px); font-weight:800}
+h2{font-size:clamp(26px,3.2vw,38px)}
+h3{font-size:19px}
+p{margin:0 0 16px}
+.accent{color:var(--blue-lt)}
+
+/* ── PLACEHOLDER · visible a propósito ────────────────────────────────────── */
+.ph{
+  border:2px dashed var(--ph-line); background:var(--ph-bg); border-radius:12px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:22px 18px; gap:7px;
+}
+.ph-tag{
+  font-size:10px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--blue-lt); border:1px solid var(--ph-line); background:rgba(47,128,255,.10);
+  padding:3px 10px; border-radius:99px;
+}
+.ph-what{font-size:14px; font-weight:600; color:#E4EBF6}
+.ph-who{font-size:12.5px; line-height:1.45; max-width:36ch; color:var(--muted)}
+
+/* ── botones ──────────────────────────────────────────────────────────────── */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  background:linear-gradient(180deg,var(--blue) 0%,var(--blue-deep) 100%);
+  color:#fff; text-decoration:none; border:1px solid rgba(255,255,255,.22);
+  font-weight:600; font-size:15.5px; padding:15px 32px; border-radius:99px; cursor:pointer;
+  box-shadow:0 0 0 1px rgba(47,128,255,.28), 0 10px 30px rgba(47,128,255,.32);
+  transition:transform .12s ease, box-shadow .2s ease;
+}
+.btn:hover{transform:translateY(-1px); box-shadow:0 0 0 1px rgba(47,128,255,.45), 0 14px 38px rgba(47,128,255,.45)}
+.btn:focus-visible{outline:3px solid var(--blue-lt); outline-offset:3px}
+.btn-sm{padding:10px 22px; font-size:14px}
+.btn .ic{width:16px; height:16px; flex:none}
+
+/* ── 0 · ticker superior (del Framer de Jonathan) ─────────────────────────── */
+.ticker{background:var(--bg-2); border-bottom:1px solid var(--line); overflow:hidden}
+.ticker .wrap{padding-top:9px; padding-bottom:9px}
+.ticker .ph{padding:9px 14px; flex-direction:row; flex-wrap:wrap; gap:10px; border-radius:8px}
+.ticker .ph-who{max-width:none}
+
+/* ── 1 · barra superior ───────────────────────────────────────────────────── */
+.hdr{background:rgba(6,9,18,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:60}
+.hdr-in{display:flex; align-items:center; justify-content:space-between; height:74px; gap:20px}
+.logo{font-weight:700; font-size:20px; letter-spacing:-.02em; text-decoration:none; color:#fff; display:flex; align-items:center; gap:3px}
+.logo .bars{display:inline-flex; gap:2px; align-items:flex-end; margin:0 2px}
+.logo .bars i{width:3px; background:var(--blue); display:block; border-radius:1px; height:14px}
+.logo .bars i:nth-child(2){height:20px; background:var(--blue-lt)}
+.logo .bars i:nth-child(3){height:11px}
+.nav{display:flex; align-items:center; gap:32px}
+.nav a.lnk{font-size:14.5px; font-weight:500; text-decoration:none; color:var(--text)}
+.nav a.lnk:hover{color:#fff}
+.burger{width:40px; height:40px; border-radius:99px; background:var(--panel-2); border:1px solid var(--line); display:grid; place-items:center; cursor:pointer}
+.burger span{display:block; width:16px; height:1.5px; background:#fff; margin:3px 0}
+@media(max-width:980px){ .nav a.lnk{display:none} }
+
+/* ── 2 · franja de valoraciones ───────────────────────────────────────────── */
+.tp-strip{background:var(--panel); border-bottom:1px solid var(--line); padding:11px 0}
+.tp-strip .ph{padding:11px 16px; flex-direction:row; flex-wrap:wrap; gap:10px}
+.tp-strip .ph-who{max-width:none}
+
+/* ── 3 · hero ─────────────────────────────────────────────────────────────── */
+.hero{
+  position:relative; padding:60px 0 52px; overflow:hidden;
+  background:
+    radial-gradient(900px 420px at 50% -8%, rgba(47,128,255,.20), transparent 68%),
+    linear-gradient(180deg,#070C18 0%,var(--bg) 100%);
+}
+/* Velas de fondo: puro CSS, sin datos — es textura, no un gráfico que afirme nada. */
+.hero::before{
+  content:""; position:absolute; inset:0; opacity:.30; pointer-events:none;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(47,128,255,.16) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(0deg, rgba(47,128,255,.07) 0 1px, transparent 1px 42px);
+  mask-image:linear-gradient(180deg,rgba(0,0,0,.85),transparent 78%);
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.85),transparent 78%);
+}
+.hero .wrap{position:relative; z-index:1}
+.hero-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center}
+@media(max-width:900px){ .hero-grid{grid-template-columns:1fr; gap:32px} }
+.video-ph{aspect-ratio:16/10; border-radius:14px; background:rgba(8,13,25,.72)}
+.hero h1{margin-bottom:24px}
+.checks{list-style:none; margin:0 0 22px; padding:0; display:grid; gap:12px}
+.checks li{display:flex; align-items:flex-start; gap:11px; font-size:15px; color:var(--text)}
+.tick{width:20px; height:20px; border-radius:50%; background:var(--green); flex:none; display:grid; place-items:center; margin-top:2px}
+.tick svg{width:10px; height:10px; color:#04140A}
+.pin{width:20px; height:20px; border-radius:50%; background:var(--blue); flex:none; display:grid; place-items:center; margin-top:2px; font-size:10px}
+.members .ph{flex-direction:row; flex-wrap:wrap; gap:9px; padding:14px 16px; text-align:left; align-items:center; justify-content:flex-start}
+.members .ph-who{max-width:none}
+.hero-cta{text-align:center; margin-top:42px}
+
+/* ── 4 · as seen on ───────────────────────────────────────────────────────── */
+.seen{padding:8px 0 20px; background:var(--bg)}
+.seen-lbl{font-size:13.5px; color:var(--muted); margin-bottom:10px; padding-left:4px}
+.logo-row{display:grid; grid-template-columns:repeat(8,1fr); gap:12px; background:var(--panel); border:1px solid var(--line); padding:14px; border-radius:12px}
+@media(max-width:1000px){ .logo-row{grid-template-columns:repeat(4,1fr)} }
+@media(max-width:560px){ .logo-row{grid-template-columns:repeat(2,1fr)} }
+.logo-row .ph{min-height:72px; padding:12px 8px; gap:4px}
+.logo-row .ph-what{font-size:11.5px}
+.note{font-size:12.5px; color:var(--muted); margin:10px 0 0}
+
+/* ── 5 · reviews ──────────────────────────────────────────────────────────── */
+.reviews{background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:32px 0}
+.reviews .ph{min-height:116px}
+
+/* ── 6 · interviews ───────────────────────────────────────────────────────── */
+.sec{padding:68px 0}
+.sec-bar{display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:26px}
+.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+@media(max-width:900px){ .grid3{grid-template-columns:1fr} }
+.vid-ph{aspect-ratio:16/9; border-radius:12px}
+.vid-cap{display:flex; align-items:center; gap:9px; margin-top:10px; font-size:13.5px; color:var(--muted)}
+
+/* ── 7 · por qué es gratis ────────────────────────────────────────────────── */
+.free{
+  padding:70px 0; border-top:1px solid var(--line);
+  background:radial-gradient(700px 340px at 18% 0%, rgba(47,128,255,.13), transparent 66%), var(--bg-2);
+}
+.free-grid{display:grid; grid-template-columns:.92fr 1.08fr; gap:46px; align-items:center}
+@media(max-width:900px){ .free-grid{grid-template-columns:1fr; gap:30px} }
+.free-quote{font-size:clamp(21px,2.5vw,28px); line-height:1.35; font-weight:700; color:#fff; margin-bottom:16px; letter-spacing:-.02em}
+.free-by{font-size:14px; font-weight:600; color:var(--blue-lt)}
+.free-cards{display:grid; gap:14px}
+.fcard{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 24px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+}
+.fcard h3{font-size:16.5px; margin-bottom:7px}
+.fcard p{margin:0; font-size:14.5px; color:var(--text)}
+
+/* ── 8 · banda de badges ──────────────────────────────────────────────────── */
+.badges{background:linear-gradient(90deg,var(--blue-deep),var(--blue)); padding:24px 0}
+.badges .ph{background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.45)}
+.badges .ph-tag{color:#fff; border-color:rgba(255,255,255,.55); background:rgba(255,255,255,.12)}
+.badges .ph-what{color:#fff}
+.badges .ph-who{color:#D6E4FF}
+
+/* ── 9 · about ────────────────────────────────────────────────────────────── */
+.about{padding:66px 0}
+.about-grid{display:grid; grid-template-columns:1.08fr .92fr; gap:44px; align-items:center}
+@media(max-width:900px){ .about-grid{grid-template-columns:1fr} }
+.about p{color:var(--text); font-size:15.5px}
+.about .kicker{color:var(--blue-lt); font-weight:600; font-size:15.5px; margin-bottom:14px}
+.dip-note{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:24px 26px}
+.dip-note p{margin:0; font-size:14.5px; color:var(--text)}
+.dip-ph{aspect-ratio:4/3; border-radius:14px; margin-bottom:16px}
+
+/* ── 10 · FAQ ─────────────────────────────────────────────────────────────── */
+.faq{padding:62px 0 70px; border-top:1px solid var(--line)}
+.faq h2{margin-bottom:24px}
+.q{border-bottom:1px solid var(--line)}
+.q summary{list-style:none; cursor:pointer; padding:19px 44px 19px 0; position:relative; font-size:15.5px; font-weight:500; color:#fff}
+.q summary::-webkit-details-marker{display:none}
+.q summary:focus-visible{outline:3px solid var(--blue-lt); outline-offset:2px}
+.q summary::after{content:"+"; position:absolute; right:8px; top:50%; transform:translateY(-50%); font-size:21px; color:var(--blue-lt); font-weight:400}
+.q[open] summary::after{content:"–"}
+.q-body{padding:0 44px 22px 0; font-size:15px; color:var(--text); max-width:70ch}
+.q-body p:last-child{margin-bottom:0}
+
+/* ── 11 · prensa ──────────────────────────────────────────────────────────── */
+.press{padding:0 0 68px}
+.press-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
+@media(max-width:1000px){ .press-grid{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:560px){ .press-grid{grid-template-columns:1fr} }
+.press-card{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:14px; display:grid; gap:12px}
+.press-ph{aspect-ratio:4/3; border-radius:10px}
+.press-btn{display:block; text-align:center; border:1px solid var(--blue); color:var(--blue-lt); border-radius:99px; padding:9px; font-size:13px; font-weight:600; text-decoration:none}
+.press-btn:hover{background:rgba(47,128,255,.12)}
+
+/* ── 12 · cierre · riesgo · pie ───────────────────────────────────────────── */
+.close{
+  padding:72px 0; text-align:center; border-top:1px solid var(--line);
+  background:radial-gradient(700px 320px at 50% 100%, rgba(47,128,255,.18), transparent 66%), var(--bg-2);
+}
+.close h2{margin-bottom:14px}
+.close p{color:var(--text); max-width:46ch; margin:0 auto 26px}
+.risk{background:#04070E; border-top:1px solid var(--line); padding:36px 0; font-size:12.5px; line-height:1.65; color:var(--muted)}
+.risk b{color:#D8E2F0}
+.risk-lbl{font-size:10.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--blue-lt); display:block; margin-bottom:10px}
+.risk p{margin-bottom:10px}
+.risk p:last-child{margin:0}
+.ftr{background:#04070E; padding:44px 0 32px; font-size:14px; color:var(--muted)}
+.ftr-cols{display:grid; grid-template-columns:repeat(4,1fr); gap:26px; margin-bottom:28px}
+@media(max-width:760px){ .ftr-cols{grid-template-columns:repeat(2,1fr)} }
+.ftr h4{font-size:13.5px; color:#fff; margin:0 0 12px; font-weight:600}
+.ftr a{display:block; color:var(--muted); text-decoration:none; margin-bottom:7px}
+.ftr a:hover{color:#fff}
+.ftr-btm{border-top:1px solid var(--line); padding-top:20px; font-size:13px}
+
+@media(max-width:560px){
+  .wrap{padding:0 18px}
+  /* :not(.btn-sm) — si no, el botón de la cabecera se va a ancho completo
+     y revienta la barra en pantallas de 320px (cazado midiendo, 20-07). */
+  .btn:not(.btn-sm){width:100%}
+  .btn-sm{padding:9px 16px; font-size:13px}
+  .hero{padding:38px 0 34px}
+  .sec,.free,.about{padding:48px 0}
+  .hdr-in{height:64px; gap:10px}
+  .logo{font-size:17px}
+  .nav{gap:10px}
+}
+@media(prefers-reduced-motion:reduce){ *{animation:none!important; transition:none!important} }
+</style>
+</head>
+<body>
+
+<!-- ══ 0 · TICKER (del Framer de Jonathan) ══ -->
+<div class="ticker">
+  <div class="wrap">
+    <div class="ph">
+      <span class="ph-tag">Placeholder</span>
+      <span class="ph-what">Live price ticker</span>
+      <span class="ph-who">Needs a real price feed. Hard-coded prices would be a fake number on a finance page.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 1 · BARRA SUPERIOR ══ -->
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="#top">Jonathan<span class="bars"><i></i><i></i><i></i></span>V</a>
+    <nav class="nav">
+      <a class="lnk" href="#free">How it's free?</a>
+      <a class="lnk" href="#interviews">Interviews</a>
+      <a class="lnk" href="#about">About</a>
+      <a class="lnk" href="#contact">Contact</a>
+      <a class="btn btn-sm js-cta" href="#" data-cta="header">Start free today</a>
+      <button class="burger" aria-label="Menu"><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<!-- ══ 2 · FRANJA DE VALORACIONES ══ -->
+<div class="tp-strip">
+  <div class="wrap">
+    <div class="ph">
+      <span class="ph-tag">Placeholder</span>
+      <span class="ph-what">Trustpilot rating strip</span>
+      <span class="ph-who">Needs a Trustpilot business profile with real reviews.</span>
+    </div>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ══ 3 · HERO ══ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <div class="ph video-ph">
+        <span class="ph-tag">Placeholder</span>
+        <span class="ph-what">Hero video — Jonathan to camera</span>
+        <span class="ph-who">Short intro: who he is, what the group is, why it's free. Owner: Jonathan / Daniil (edit).</span>
+      </div>
+
+      <div>
+        <h1>Get my exact entry, target and stop <span class="accent">every time I step into the market.</span></h1>
+        <ul class="checks">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><path d="M4 12l6 6L20 6"/></svg></span>Every position I open goes to the group, in real time</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><path d="M4 12l6 6L20 6"/></svg></span>Full-time trader — my own capital on the line every day</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><path d="M4 12l6 6L20 6"/></svg></span>Entry, target and stop given up front, not after the move</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><path d="M4 12l6 6L20 6"/></svg></span>Built for beginners, followed by experienced traders</li>
+          <li><span class="pin">📍</span>Trading full-time from Dubai</li>
+        </ul>
+
+        <div class="members">
+          <div class="ph">
+            <span class="ph-tag">Placeholder</span>
+            <span class="ph-what">Member avatars + live member count</span>
+            <span class="ph-who">Needs the real Telegram member number.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a class="btn js-cta" href="#" data-cta="hero">
+        <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.6 20c-.2 1.1-.9 1.4-1.8.9l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.3-.1-.5-.6-.2L6.1 13.2l-4.8-1.5c-1-.3-1.1-1 .2-1.5l18.9-7.3c.9-.3 1.6.2 1.5 1.4z"/></svg>
+        Join the group now — it's free
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4 · AS SEEN ON ══ -->
+<section class="seen">
+  <div class="wrap">
+    <div class="seen-lbl">As seen on</div>
+    <div class="logo-row">
+      <div class="ph"><span class="ph-what">Press logo 1</span></div>
+      <div class="ph"><span class="ph-what">Press logo 2</span></div>
+      <div class="ph"><span class="ph-what">Press logo 3</span></div>
+      <div class="ph"><span class="ph-what">Press logo 4</span></div>
+      <div class="ph"><span class="ph-what">Press logo 5</span></div>
+      <div class="ph"><span class="ph-what">Press logo 6</span></div>
+      <div class="ph"><span class="ph-what">Press logo 7</span></div>
+      <div class="ph"><span class="ph-what">Press logo 8</span></div>
+    </div>
+    <p class="note">Placeholder row. The reference buys these as paid contributor placements — a real cost, and a decision for Alex and Pere.</p>
+  </div>
+</section>
+
+<!-- ══ 5 · REVIEWS ══ -->
+<section class="reviews">
+  <div class="wrap">
+    <div class="ph">
+      <span class="ph-tag">Placeholder</span>
+      <span class="ph-what">Review carousel</span>
+      <span class="ph-who">Same dependency as the strip above: a live Trustpilot profile with reviews.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 6 · INTERVIEWS ══ -->
+<section class="sec" id="interviews">
+  <div class="wrap">
+    <div class="sec-bar">
+      <h2>Interviews with members</h2>
+      <div class="ph" style="padding:9px 14px"><span class="ph-what" style="font-size:12.5px">Member count + countries</span></div>
+    </div>
+    <div class="grid3">
+      <div><div class="ph vid-ph"><span class="ph-tag">Placeholder</span><span class="ph-what">Member interview 1</span></div><div class="vid-cap">Name, country</div></div>
+      <div><div class="ph vid-ph"><span class="ph-tag">Placeholder</span><span class="ph-what">Member interview 2</span></div><div class="vid-cap">Name, country</div></div>
+      <div><div class="ph vid-ph"><span class="ph-tag">Placeholder</span><span class="ph-what">Member interview 3</span></div><div class="vid-cap">Name, country</div></div>
+    </div>
+    <p class="note">The reference runs roughly 80 of these — the biggest block of that page and the main reason it converts. Pere's call (19-07): leave the space, add them later.</p>
+  </div>
+</section>
+
+<!-- ══ 7 · POR QUÉ ES GRATIS ══ -->
+<section class="free" id="free">
+  <div class="wrap free-grid">
+    <div>
+      <p class="free-quote">The group is paid for by a broker partnership, which is why it costs you nothing.</p>
+      <p class="free-by">— Jonathan Verstraeten</p>
+    </div>
+    <div class="free-cards">
+      <div class="fcard">
+        <h3>Where the money comes from</h3>
+        <p>If you decide to trade and open an account through our link, the broker pays us a referral fee. That is what funds the group.</p>
+      </div>
+      <div class="fcard">
+        <h3>What it costs you</h3>
+        <p>Nothing extra. The fee comes out of the broker's side. There is no subscription and no paid tier behind this.</p>
+      </div>
+      <div class="fcard">
+        <h3>What we don't do</h3>
+        <p>We never touch your money. Your funds stay in your own brokerage account, in your name. We don't manage accounts and we don't take deposits.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 8 · BANDA DE BADGES ══ -->
+<section class="badges">
+  <div class="wrap">
+    <div class="ph">
+      <span class="ph-tag">Placeholder</span>
+      <span class="ph-what">Awards / recognition strip</span>
+      <span class="ph-who">The reference runs a scrolling band of award claims. We have none, so nothing is printed here.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 9 · ABOUT ══ -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <h2 style="margin-bottom:16px">Let me tell you how I got here</h2>
+      <p class="kicker">Hey, I'm Jonathan Verstraeten.</p>
+      <p>I opened my first business at sixteen. While people my age had weekends, I had staff to manage, inventory to count and rent to cover every month. It taught me early that results come from showing up consistently, not from waiting for the right moment.</p>
+      <p>I started studying trading in every spare hour I had. For years I lost money, bought courses that delivered nothing, and followed people who turned out not to be trading their own calls. I kept going because I could see the skill was real, even if most of the people selling it weren't.</p>
+      <p>Eventually it clicked. My trading income passed what the business was making, then passed it again. I sold the business, moved to Dubai and have been trading full-time since. This group exists because I wish something like it had existed when I was starting out.</p>
+    </div>
+    <div>
+      <div class="ph dip-ph">
+        <span class="ph-tag">Placeholder</span>
+        <span class="ph-what">Photo of Jonathan at the desk</span>
+        <span class="ph-who">The Dubai desk shot from the Framer page works here.</span>
+      </div>
+      <div class="dip-note">
+        <p><b style="color:#fff">Credentials block — placeholder.</b> The reference puts a diploma and a licence number here. We hold neither, so this stays empty until there is something real and verifiable to show.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 10 · FAQ ══ -->
+<section class="faq">
+  <div class="wrap">
+    <h2>Frequently asked questions</h2>
+    <details class="q"><summary>What if I know nothing about trading?</summary>
+      <div class="q-body"><p>Most people in the group have never placed a trade. Every position comes with the entry, the target and the stop, and you can follow along without risking anything until you're ready.</p></div></details>
+    <details class="q"><summary>Why is it free?</summary>
+      <div class="q-body"><p>A broker partnership pays for it. If you open an account through our link, the broker pays us a referral fee from their side. You are never charged, and you're under no obligation to open anything.</p></div></details>
+    <details class="q"><summary>How do I start and what do I need?</summary>
+      <div class="q-body"><p>One tap into Telegram. No form, no email, no card. Watch a few sessions and decide from there whether you want to trade for yourself.</p></div></details>
+    <details class="q"><summary>Do you trade your own money?</summary>
+      <div class="q-body"><p>Yes. Every position posted in the group is one I've taken with my own capital. I don't post calls I haven't taken myself.</p></div></details>
+    <details class="q"><summary>Will you manage my money for me?</summary>
+      <div class="q-body"><p>No. We never take deposits and never have access to your account. Your money stays with your broker, under your control, at all times.</p></div></details>
+    <details class="q"><summary>Is there any kind of commitment?</summary>
+      <div class="q-body"><p>None. There's no subscription, no paid tier and no contract. You can leave the group in one tap and nobody will call you.</p></div></details>
+  </div>
+</section>
+
+<!-- ══ 11 · PRENSA ══ -->
+<section class="press">
+  <div class="wrap">
+    <div class="press-grid">
+      <div class="press-card"><div class="ph press-ph"><span class="ph-what">Article 1</span></div><a class="press-btn" href="#">Read article</a></div>
+      <div class="press-card"><div class="ph press-ph"><span class="ph-what">Article 2</span></div><a class="press-btn" href="#">Read article</a></div>
+      <div class="press-card"><div class="ph press-ph"><span class="ph-what">Article 3</span></div><a class="press-btn" href="#">Read article</a></div>
+      <div class="press-card"><div class="ph press-ph"><span class="ph-what">Article 4</span></div><a class="press-btn" href="#">Read article</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 12 · CIERRE ══ -->
+<section class="close">
+  <div class="wrap">
+    <h2>The next trade is the best place to start.</h2>
+    <p>Join the group, watch how it's done, and decide from there.</p>
+    <a class="btn js-cta" href="#" data-cta="closing">
+      <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.6 20c-.2 1.1-.9 1.4-1.8.9l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.3-.1-.5-.6-.2L6.1 13.2l-4.8-1.5c-1-.3-1.1-1 .2-1.5l18.9-7.3c.9-.3 1.6.2 1.5 1.4z"/></svg>
+      Join the group now — it's free
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ RIESGO ══ -->
+<section class="risk">
+  <div class="wrap">
+    <span class="risk-lbl">Risk warning</span>
+    <p><b>Trading carries a high risk of losing money.</b> Contracts for difference and leveraged foreign exchange products are complex instruments, and a large majority of retail investor accounts lose money trading them. Consider whether you understand how these products work and whether you can afford to take the high risk of losing your money.</p>
+    <p>Nothing in the Telegram group or on this page is investment advice, a personal recommendation, or an offer to buy or sell any instrument. Content is educational and reflects one trader's own decisions. Past performance is not a reliable indicator of future results.</p>
+    <p><b>Commercial disclosure:</b> we have a referral arrangement with a broker and are paid a fee when someone opens an account through our link. This is how the group is funded. We do not hold, manage or have access to client funds at any time.</p>
+    <p id="legalEntity"></p>
+  </div>
+</section>
+
+<!-- ══ PIE ══ -->
+<footer class="ftr" id="contact">
+  <div class="wrap">
+    <div class="ftr-cols">
+      <div><h4>Follow</h4><a href="#">Instagram — placeholder</a><a href="#">Telegram — placeholder</a></div>
+      <div><h4>Articles / Press</h4><a href="#">Placeholder</a><a href="#">Placeholder</a></div>
+      <div><h4>Useful links</h4><a href="#free">How it's free?</a><a href="#interviews">Interviews</a><a href="#about">About</a></div>
+      <div><h4>Contact</h4><a href="#">Email — placeholder</a><a href="#">Legal entity — placeholder</a></div>
+    </div>
+    <div class="ftr-btm">© <span id="year"></span> Jonathan Verstraeten</div>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   CAPA DE TRACKING · lo que la referencia NO hace
+   Su web salta a Telegram con un link estático y pierde la atribución.
+   Aquí toda la query del anuncio se captura, se persiste y se reenvía al link
+   de Chatterfy, que es quien engendra el clickid que acaba en `afp`.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+var TS_LINK   = 'https://tel.tradestartjv.com/2WFS9m3FRO';  /* campaña Chatterfy (13-07) */
+var TS_BEACON = '';                       /* webhook n8n · vacío = no dispara nada */
+var TS_PIXEL  = { enabled:false, id:'' }; /* Meta pixel · lo enciende Alex. ID: 1066707279250816 */
+var LEGAL_ENTITY = '';                    /* razón social · vacío = no se imprime */
+
+var ATTR_KEY = 'ts:attr';
+
+/* Se guarda TODA la query, no una lista blanca: los macros se configuran en el
+   anuncio y cambian sin avisarnos; una lista blanca se quedaría corta en silencio. */
+function readAttribution(){
+  var fromUrl = {}, stored = {}, any = false;
+  new URLSearchParams(location.search).forEach(function(v,k){ if (v){ fromUrl[k]=v; any=true; } });
+  try { stored = JSON.parse(localStorage.getItem(ATTR_KEY) || '{}'); } catch(e){}
+  if (any) { try { localStorage.setItem(ATTR_KEY, JSON.stringify(fromUrl)); } catch(e){} return fromUrl; }
+  return stored;                          /* last-touch: sobrevive recargas y vueltas */
+}
+var ATTR = readAttribution();
+
+function destination(){
+  var url;
+  try { url = new URL(TS_LINK); } catch(e){ return TS_LINK; }
+  Object.keys(ATTR).forEach(function(k){ if (!url.searchParams.has(k)) url.searchParams.set(k, ATTR[k]); });
+  return url.toString();
+}
+function hasAttribution(){ return Object.keys(ATTR).length > 0; }
+
+function beacon(event, extra){
+  if (!TS_BEACON) return;                 /* sin webhook no se finge un envío */
+  var p = { event:event, page:'jonathan-landing', attribution:hasAttribution(),
+            params:ATTR, ts:new Date().toISOString() };
+  if (extra) Object.keys(extra).forEach(function(k){ p[k]=extra[k]; });
+  try {
+    var b = new Blob([JSON.stringify(p)], {type:'application/json'});
+    if (navigator.sendBeacon) navigator.sendBeacon(TS_BEACON, b);
+    else fetch(TS_BEACON,{method:'POST',body:JSON.stringify(p),keepalive:true,headers:{'Content-Type':'application/json'}});
+  } catch(e){}
+}
+
+(function wire(){
+  var dest = destination();
+  document.querySelectorAll('.js-cta').forEach(function(el){
+    el.setAttribute('href', dest);
+    el.setAttribute('rel','noopener');
+    el.addEventListener('click', function(){
+      el.setAttribute('href', destination());
+      beacon('cta_click', { cta: el.getAttribute('data-cta') || 'unknown' });
+    });
+  });
+})();
+
+document.getElementById('year').textContent = new Date().getFullYear();
+if (LEGAL_ENTITY) document.getElementById('legalEntity').textContent = LEGAL_ENTITY;
+beacon('page_view');
+
+if (TS_PIXEL.enabled && TS_PIXEL.id) {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', TS_PIXEL.id); fbq('track','PageView');
+}
+</script>
+</body>
+</html>
