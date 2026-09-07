@@ -230,16 +230,6 @@ p{margin:0 0 16px}
 .q-body{padding:0 44px 22px 0; font-size:15px; color:var(--text); max-width:70ch}
 .q-body p:last-child{margin-bottom:0}
 
-/* ── 11 · prensa ──────────────────────────────────────────────────────────── */
-.press{padding:0 0 68px}
-.press-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
-@media(max-width:1000px){ .press-grid{grid-template-columns:repeat(2,1fr)} }
-@media(max-width:560px){ .press-grid{grid-template-columns:1fr} }
-.press-card{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:14px; display:grid; gap:12px}
-.press-ph{aspect-ratio:4/3; border-radius:10px}
-.press-btn{display:block; text-align:center; border:1px solid var(--blue); color:var(--blue-lt); border-radius:99px; padding:9px; font-size:13px; font-weight:600; text-decoration:none}
-.press-btn:hover{background:rgba(47,128,255,.12)}
-
 /* ── 12 · cierre · riesgo · pie ───────────────────────────────────────────── */
 .close{
   padding:72px 0; text-align:center; border-top:1px solid var(--line);
@@ -253,7 +243,7 @@ p{margin:0 0 16px}
 .risk p{margin-bottom:10px}
 .risk p:last-child{margin:0}
 .ftr{background:#04070E; padding:44px 0 32px; font-size:14px; color:var(--muted)}
-.ftr-cols{display:grid; grid-template-columns:repeat(4,1fr); gap:26px; margin-bottom:28px}
+.ftr-cols{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-bottom:28px}
 @media(max-width:760px){ .ftr-cols{grid-template-columns:repeat(2,1fr)} }
 .ftr h4{font-size:13.5px; color:#fff; margin:0 0 12px; font-weight:600}
 .ftr a{display:block; color:var(--muted); text-decoration:none; margin-bottom:7px}
@@ -495,18 +485,6 @@ p{margin:0 0 16px}
   </div>
 </section>
 
-<!-- ══ 11 · PRENSA ══ -->
-<section class="press">
-  <div class="wrap">
-    <div class="press-grid">
-      <div class="press-card"><div class="ph press-ph"><span class="ph-what">Article 1</span></div><a class="press-btn" href="#">Read article</a></div>
-      <div class="press-card"><div class="ph press-ph"><span class="ph-what">Article 2</span></div><a class="press-btn" href="#">Read article</a></div>
-      <div class="press-card"><div class="ph press-ph"><span class="ph-what">Article 3</span></div><a class="press-btn" href="#">Read article</a></div>
-      <div class="press-card"><div class="ph press-ph"><span class="ph-what">Article 4</span></div><a class="press-btn" href="#">Read article</a></div>
-    </div>
-  </div>
-</section>
-
 <!-- ══ 12 · CIERRE ══ -->
 <section class="close">
   <div class="wrap">
@@ -537,7 +515,6 @@ p{margin:0 0 16px}
   <div class="wrap">
     <div class="ftr-cols">
       <div><h4>Follow</h4><a href="#">Instagram — placeholder</a><a href="#">Telegram — placeholder</a></div>
-      <div><h4>Articles / Press</h4><a href="#">Placeholder</a><a href="#">Placeholder</a></div>
       <div><h4>Useful links</h4><a href="#free">How it's free?</a><a href="#interviews">Interviews</a><a href="#about">About</a></div>
       <div><h4>Contact</h4><a href="#">Email — placeholder</a><a href="#">Legal entity — placeholder</a></div>
     </div>
