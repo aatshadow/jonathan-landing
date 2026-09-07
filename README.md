@@ -109,6 +109,27 @@ que permitir `player.mediadelivery.net` en `frame-src` o el hero se queda en neg
 
 ---
 
+## Despliegue
+
+Producción: **https://jonathan-landing-seven.vercel.app** (proyecto Vercel `jonathan-landing`,
+cuenta `aatshadow`).
+
+⚠️ **El auto-deploy desde GitHub NO dispara en este proyecto.** Pushear a `main` deja el repo
+actualizado y producción intacta — comprobado el 07-09: el push llegó a GitHub y 11 minutos
+después la web seguía sirviendo el commit anterior. El proyecto llevaba 49 días sin desplegar.
+
+Se despliega a mano, desde esta carpeta:
+
+```bash
+npx vercel deploy --prod --yes     # la sesión del CLI ya está iniciada como aatshadow
+```
+
+Y **se verifica que llegó** — el alias puede seguir sirviendo la versión vieja desde caché:
+
+```bash
+curl -s "https://jonathan-landing-seven.vercel.app/?cb=$RANDOM" | grep -c mediadelivery.net
+```
+
 ## Correr en local
 
 ```bash
