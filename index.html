@@ -159,6 +159,20 @@ p{margin:0 0 16px}
 .pin{width:20px; height:20px; border-radius:50%; background:var(--blue); flex:none; display:grid; place-items:center; margin-top:2px; font-size:10px}
 .members .ph{flex-direction:row; flex-wrap:wrap; gap:9px; padding:14px 16px; text-align:left; align-items:center; justify-content:flex-start}
 .members .ph-who{max-width:none}
+/* Recuento de miembros. Es un número a mano, no un contador en vivo: se toca
+   aquí y en el <span> de la sección de entrevistas. */
+.count-pill{
+  display:inline-flex; align-items:center; gap:11px;
+  background:var(--panel); border:1px solid var(--line); border-radius:99px;
+  padding:11px 19px; font-size:14.5px; color:var(--text);
+}
+.count-pill b{color:#fff; font-weight:700; font-size:16.5px}
+.count-pill .dot{
+  width:8px; height:8px; border-radius:50%; background:var(--green); flex:none;
+  box-shadow:0 0 0 4px rgba(34,197,94,.15);
+}
+.sec-bar .count-pill{padding:9px 16px; font-size:13px}
+.sec-bar .count-pill b{font-size:14.5px}
 .hero-cta{text-align:center; margin-top:42px}
 
 /* ── 4 · as seen on ───────────────────────────────────────────────────────── */
@@ -216,7 +230,11 @@ p{margin:0 0 16px}
 .about .kicker{color:var(--blue-lt); font-weight:600; font-size:15.5px; margin-bottom:14px}
 .dip-note{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:24px 26px}
 .dip-note p{margin:0; font-size:14.5px; color:var(--text)}
-.dip-ph{aspect-ratio:4/3; border-radius:14px; margin-bottom:16px}
+.dip-photo{
+  aspect-ratio:4/3; border-radius:14px; overflow:hidden; margin-bottom:16px;
+  border:1px solid var(--line); background:var(--panel);
+}
+.dip-photo img{width:100%; height:100%; object-fit:cover; object-position:center 38%}
 
 /* ── 10 · FAQ ─────────────────────────────────────────────────────────────── */
 .faq{padding:62px 0 70px; border-top:1px solid var(--line)}
@@ -349,12 +367,11 @@ p{margin:0 0 16px}
           <li><span class="pin">📍</span>Trading full-time from Dubai</li>
         </ul>
 
+        <!-- Número REAL del grupo de Telegram, dado por Alex el 07-09-2026.
+             No es un contador en vivo: si el grupo crece, se actualiza a mano
+             aquí y en la barra de "Interviews with members". -->
         <div class="members">
-          <div class="ph">
-            <span class="ph-tag">Placeholder</span>
-            <span class="ph-what">Member avatars + live member count</span>
-            <span class="ph-who">Needs the real Telegram member number.</span>
-          </div>
+          <div class="count-pill"><span class="dot"></span><b id="memberCount">1,343</b> traders already in the group</div>
         </div>
       </div>
     </div>
@@ -408,7 +425,7 @@ p{margin:0 0 16px}
   <div class="wrap">
     <div class="sec-bar">
       <h2>Interviews with members</h2>
-      <div class="ph" style="padding:9px 14px"><span class="ph-what" style="font-size:12.5px">Member count + countries</span></div>
+      <div class="count-pill"><span class="dot"></span><b>1,343</b> members</div>
     </div>
     <div class="grid3">
       <div><div class="ph vid-ph"><span class="ph-tag">Placeholder</span><span class="ph-what">Member interview 1</span></div><div class="vid-cap">Name, country</div></div>
@@ -454,10 +471,13 @@ p{margin:0 0 16px}
       <p>Eventually it clicked. My trading income passed what the business was making, then passed it again. I sold the business, moved to Dubai and have been trading full-time since. This group exists because I wish something like it had existed when I was starting out.</p>
     </div>
     <div>
-      <div class="ph dip-ph">
-        <span class="ph-tag">Placeholder</span>
-        <span class="ph-what">Photo of Jonathan at the desk</span>
-        <span class="ph-who">The Dubai desk shot from the Framer page works here.</span>
+      <!-- La foto del escritorio de su propio Framer, en la misma sección que
+           allí ("From a restaurant kitchen to a trading desk in Dubai").
+           Reescalada a 1000px y SIN EXIF: el original es un iPhone y llevaba
+           las coordenadas GPS dentro. -->
+      <div class="dip-photo">
+        <img src="assets/jonathan-desk.jpg" width="1000" height="1333" loading="lazy" decoding="async"
+             alt="Jonathan Verstraeten at his trading desk in Dubai">
       </div>
       <div class="dip-note">
         <p><b style="color:#fff">Credentials block — placeholder.</b> The reference puts a diploma and a licence number here. We hold neither, so this stays empty until there is something real and verifiable to show.</p>
