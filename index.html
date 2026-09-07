@@ -95,15 +95,13 @@ p{margin:0 0 16px}
 .ticker .wrap{padding-top:9px; padding-bottom:9px}
 .ticker .ph{padding:9px 14px; flex-direction:row; flex-wrap:wrap; gap:10px; border-radius:8px}
 .ticker .ph-who{max-width:none}
-/* Alto reservado = el del widget. Sin esto la página salta cuando carga el iframe. */
-.ticker-live{min-height:46px}
-.ticker-live .tradingview-widget-container{height:46px}
-/* La atribución de TradingView es obligatoria por sus términos: se deja, en pequeño. */
-.ticker-live .tradingview-widget-copyright{
-  font-size:10px; line-height:1; text-align:center; padding:0 0 2px; color:var(--muted);
-}
-.ticker-live .tradingview-widget-copyright a{color:var(--muted); text-decoration:none}
-.ticker-live .tradingview-widget-copyright a:hover{color:var(--blue-lt)}
+/* El iframe de TradingView pide 72px pero dibuja la cinta en los 44 de arriba:
+   se recorta a la altura de la franja (.ticker ya lleva overflow:hidden) para
+   no dejar un hueco muerto debajo de los precios. */
+.ticker-live{height:46px}
+/* En móvil el widget apila etiqueta y precio en dos líneas: si se recorta a 46
+   se corta el precio por la mitad. */
+@media(max-width:760px){ .ticker-live{height:72px} }
 
 /* ── 1 · barra superior ───────────────────────────────────────────────────── */
 .hdr{background:rgba(6,9,18,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:60}
@@ -210,13 +208,6 @@ p{margin:0 0 16px}
 .fcard h3{font-size:16.5px; margin-bottom:7px}
 .fcard p{margin:0; font-size:14.5px; color:var(--text)}
 
-/* ── 8 · banda de badges ──────────────────────────────────────────────────── */
-.badges{background:linear-gradient(90deg,var(--blue-deep),var(--blue)); padding:24px 0}
-.badges .ph{background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.45)}
-.badges .ph-tag{color:#fff; border-color:rgba(255,255,255,.55); background:rgba(255,255,255,.12)}
-.badges .ph-what{color:#fff}
-.badges .ph-who{color:#D6E4FF}
-
 /* ── 9 · about ────────────────────────────────────────────────────────────── */
 .about{padding:66px 0}
 .about-grid{display:grid; grid-template-columns:1.08fr .92fr; gap:44px; align-items:center}
@@ -295,12 +286,7 @@ p{margin:0 0 16px}
 <div class="ticker ticker-live">
   <div class="tradingview-widget-container">
     <div class="tradingview-widget-container__widget"></div>
-    <div class="tradingview-widget-copyright">
-      <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">Market data by TradingView</a>
-    </div>
-  </div>
-</div>
-<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
 {
   "symbols": [
     { "proName": "FX:EURUSD",        "title": "EUR/USD" },
@@ -316,7 +302,9 @@ p{margin:0 0 16px}
   "colorTheme": "dark",
   "locale": "en"
 }
-</script>
+    </script>
+  </div>
+</div>
 
 <!-- ══ 1 · BARRA SUPERIOR ══ -->
 <header class="hdr">
@@ -461,17 +449,6 @@ p{margin:0 0 16px}
         <h3>What we don't do</h3>
         <p>We never touch your money. Your funds stay in your own brokerage account, in your name. We don't manage accounts and we don't take deposits.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 8 · BANDA DE BADGES ══ -->
-<section class="badges">
-  <div class="wrap">
-    <div class="ph">
-      <span class="ph-tag">Placeholder</span>
-      <span class="ph-what">Awards / recognition strip</span>
-      <span class="ph-who">The reference runs a scrolling band of award claims. We have none, so nothing is printed here.</span>
     </div>
   </div>
 </section>
