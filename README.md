@@ -55,18 +55,41 @@ Es el equivalente nativo del `withTracking` que Alex pasó a Daniil para el over
 
 ---
 
+## ✅ Resuelto · Ticker de precios (07-09)
+
+Feed **real** de TradingView (widget oficial `ticker-tape`, sin clave y sin backend), tema oscuro
+y transparente para que herede el navy de la página. Seis símbolos: EUR/USD · GBP/USD · Gold ·
+Nasdaq 100 · S&P 500 · Bitcoin. Se cambian editando el JSON del `<script>` al final del `<body>`.
+
+Por qué un widget y no números nuestros: un precio escrito a mano en una página financiera está
+desfasado a los cinco minutos y es exactamente el detalle que mira el regulador. La atribución
+a TradingView se deja visible porque la exigen sus términos.
+
+⚠️ Es un script de terceros: si algún día se le pone una CSP a la landing, hay que permitir
+`s3.tradingview.com` y los iframes de `tradingview.com`, o el ticker desaparece sin avisar.
+
+## ✅ Resuelto · VSL del hero (07-09)
+
+El vídeo real de Jonathan, servido desde **Bunny Stream** (librería `746352`, vídeo
+`031ff6dc-4f3c-4272-9f48-c66f19575fed`) en el hueco del hero. Iframe `responsive`, 16:9, con el
+alto reservado por CSS para que el hero no salte al cargar el player.
+
+Arranca en **autoplay + muted**: es la única combinación que los navegadores autorreproducen.
+El sonido lo enciende el usuario en el propio player.
+
+⚠️ Otro script de terceros, igual que el ticker: si algún día se le pone CSP a la landing, hay
+que permitir `player.mediadelivery.net` en `frame-src` o el hero se queda en negro sin avisar.
+
 ## Placeholders pendientes de activo real
 
 | Sección | Qué falta | Dueño |
 |---|---|---|
-| Ticker de precios | Un feed real. Precios fijos serían un número falso en una página financiera | — |
-| Vídeo del hero | Intro de Jonathan a cámara | Jonathan / Daniil (edición) |
 | Avatares + contador | El número real de miembros del Telegram | Jonathan |
 | "As seen on" (8 logos) | Prensa. La referencia la compra como contenido pagado | Alex / Pere (decisión) |
 | Carrusel de reseñas | Perfil de Trustpilot con reseñas reales | — |
 | 3 entrevistas | La referencia corre ~80: es el bloque más grande de su página y la razón principal de que convierta | Pere (decisión 19-07: dejar el hueco) |
 | Banda de premios | No tenemos ninguno | — |
-| Foto del escritorio | La de Dubái del Framer sirve | Jonathan |
+| Foto del escritorio | ⚠️ **Sigue faltando.** `~/Downloads/dubai jonathan.jpg` **no vale**: es el Burj Khalifa de noche, sin Jonathan y sin escritorio. Hace falta el retrato real | Jonathan |
 | Bloque de credenciales | Diploma / licencia. No tenemos | — |
 
 ---
