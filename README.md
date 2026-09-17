@@ -163,3 +163,53 @@ Aplican parcialmente **SOP-19** (el hook se lleva el 80-90%), **SOP-24-32** (ads
 **SOP-49** (KPIs por etapa). Propuesto **SOP-A03 · Funnel CPA de afiliación**.
 
 Análisis de la referencia: `operator/portfolio/growthinfo/clients/jonathan/TEARDOWN-fred-frost.md`
+
+---
+
+# `/welcome` · landing v2 · réplica de learnwithsnipe.com (17-09-2026)
+
+Segunda landing en el **mismo repo y el mismo proyecto de Vercel**: `welcome.html` → `/welcome`
+(`cleanUrls` ya estaba activo). La v1 (`index.html`, réplica de fred-frost) sigue en `/` tal cual.
+Comparten `assets/` y la misma capa de atribución.
+
+Encargo de Alex: **replicar `https://learnwithsnipe.com/`** con el contenido real de Jonathan.
+
+## Qué se copió de la referencia y qué no
+
+| Capa | Origen |
+|---|---|
+| **Estructura** | learnwithsnipe.com, sección a sección y en el mismo orden: cabecera con un solo CTA · hero con prueba social + titular con caja azul + barra "live" + VSL en tarjeta blanca · PROOF · "This Is Your Shot" · "Is it for you?" (6 checks + foto) · qué te llevas (portátil + acordeón) · marquesinas de mensajes · "Why is it free?" · "Join my free group" + retrato · comparativa · método en 3 pasos · Trustpilot + reseñas · pie navy |
+| **Estilo** | El suyo: Inter, azul `#2563EB`, navy `#0F172A`, bloques negro/blanco alternos, botón `Join Free Group Now` repetido (×8) |
+| **Contenido** | El **real** de Jonathan: titular de entry/target/stop, 1.343 miembros, VSL de Bunny, las 5 cosas del VIP (del bot), el "por qué es gratis" y el aviso de riesgo de la v1, foto del escritorio + retrato (`assets/jonathan-portrait.jpg`, del Framer, sin EXIF) |
+| **Lo que falta** | **Placeholder marcado** (borde azul discontinuo, con el dueño debajo). Cero reseñas, certificados, caras o cifras inventadas |
+
+La referencia lleva una **cuenta atrás de 10 minutos que se reinicia sola** ("LIVE TRADING starting
+in 09:59"). En `/welcome` la barra es **real**: tiempo hasta la apertura de Nueva York (09:30 ET, L-V,
+en hora de pared de NY para que el DST lo resuelva el navegador); entre 09:30 y 11:30 ET dice
+"NY SESSION OPEN". No promete sesión en directo, que no está confirmada.
+
+No se trajeron: los certificados de prop firms (no aplica) ni el curso de 100 horas (no hay curso;
+en su lugar va lo que sí te llevas: el grupo).
+
+## Placeholders de `/welcome` pendientes de activo real
+
+| Sección | Qué falta | Dueño |
+|---|---|---|
+| PROOF (3 móviles) | 3 capturas reales de resultados de miembros (MT5 o chat), con permiso | Jonathan |
+| "This Is Your Shot" (móvil) | Captura de una operación tal y como sale en Open TradeStart | Jonathan / CM |
+| "Everything you get" (portátil) | Captura de una operación con entrada · objetivo · stop · razonamiento | Jonathan / CM |
+| Marquesinas (12 tarjetas) | Capturas de mensajes de miembros, nombres tapados | Jonathan / CM |
+| Reseñas (3 tarjetas) | Las tres primeras reseñas publicadas en Trustpilot (`tradestartjv.com` aún no tiene ninguna; va el TrustBox real que las pide) | — |
+| Pie | Privacy · Terms · Contact apuntan a `#` como en la referencia | Alex / Pere |
+
+Las capturas se meten sustituyendo el `<div class="ph">…</div>` por un `<img>` del mismo tamaño.
+Las de las marquesinas se generan en el `<script>` (`fill('marq1', […])`): cambiar la lista de
+etiquetas por rutas y el `innerHTML` por `<img>`.
+
+El beacon de `/welcome` manda `page: jonathan-landing-welcome` (la v1 manda `jonathan-landing`),
+para poder separarlas en n8n cuando se encienda `TS_BEACON`. Al encender el píxel, el clic en CTA
+manda `Lead` además de `PageView`.
+
+Verificado el 17-09 con Chrome headless a 1440 y a 390 px: sin desbordamiento horizontal. ⚠️ Chrome
+headless no baja de ~500 px de ventana: para capturar a 390 hay que meter la página en un
+`<iframe width=390>` y capturar el marco.
