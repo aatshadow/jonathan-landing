@@ -178,7 +178,7 @@ Encargo de Alex: **replicar `https://learnwithsnipe.com/`** con el contenido rea
 
 | Capa | Origen |
 |---|---|
-| **Estructura** | learnwithsnipe.com, sección a sección y en el mismo orden: cabecera con un solo CTA · hero con prueba social + titular con caja azul + barra "live" + VSL en tarjeta blanca · PROOF · "This Is Your Shot" · "Is it for you?" (6 checks + foto) · qué te llevas (portátil + acordeón) · marquesinas de mensajes · "Why is it free?" · "Join my free group" + retrato · comparativa · método en 3 pasos · Trustpilot + reseñas · pie navy |
+| **Estructura** | learnwithsnipe.com, sección a sección y en el mismo orden: cabecera con un solo CTA · hero con prueba social + titular con caja azul + barra "live" + VSL en tarjeta blanca · PROOF · "This Is Your Shot" · "Is it for you?" (6 checks + foto) · **BONUS: training completo de su metodología** (portátil + acordeón de módulos, como el curso de la referencia; Alex 17-09) · qué te llevas (rejilla de 6) · marquesinas de mensajes · "Why is it free?" · "Join my free group" + retrato · comparativa · método en 3 pasos · Trustpilot + reseñas · pie navy |
 | **Estilo** | El suyo: Inter, azul `#2563EB`, navy `#0F172A`, bloques negro/blanco alternos, botón `Join Free Group Now` repetido (×8) |
 | **Contenido** | El **real** de Jonathan: titular de entry/target/stop, 1.343 miembros, VSL de Bunny, las 5 cosas del VIP (del bot), el "por qué es gratis" y el aviso de riesgo de la v1, foto del escritorio + retrato (`assets/jonathan-portrait.jpg`, del Framer, sin EXIF) |
 | **Lo que falta** | **Placeholder marcado** (borde azul discontinuo, con el dueño debajo). Cero reseñas, certificados, caras o cifras inventadas |
@@ -188,8 +188,8 @@ in 09:59"). En `/welcome` la barra es **real**: tiempo hasta la apertura de Nuev
 en hora de pared de NY para que el DST lo resuelva el navegador); entre 09:30 y 11:30 ET dice
 "NY SESSION OPEN". No promete sesión en directo, que no está confirmada.
 
-No se trajeron: los certificados de prop firms (no aplica) ni el curso de 100 horas (no hay curso;
-en su lugar va lo que sí te llevas: el grupo).
+No se trajeron los certificados de prop firms (no aplica). El curso de 100 horas de la referencia
+se trajo como **BONUS · training completo de su metodología** (Alex, 17-09).
 
 ## Placeholders de `/welcome` pendientes de activo real
 
@@ -197,7 +197,7 @@ en su lugar va lo que sí te llevas: el grupo).
 |---|---|---|
 | PROOF (3 móviles) | 3 capturas reales de resultados de miembros (MT5 o chat), con permiso | Jonathan |
 | "This Is Your Shot" (móvil) | Captura de una operación tal y como sale en Open TradeStart | Jonathan / CM |
-| "Everything you get" (portátil) | Captura de una operación con entrada · objetivo · stop · razonamiento | Jonathan / CM |
+| BONUS training (portátil + acordeón) | Captura del área de formación + nombre real de los módulos, nº de vídeos y minutos (los 4 módulos actuales siguen los pilares de la página y llevan "pending" visible) | Jonathan |
 | Marquesinas (12 tarjetas) | Capturas de mensajes de miembros, nombres tapados | Jonathan / CM |
 | Reseñas (3 tarjetas) | Las tres primeras reseñas publicadas en Trustpilot (`tradestartjv.com` aún no tiene ninguna; va el TrustBox real que las pide) | — |
 | Pie | Privacy · Terms · Contact apuntan a `#` como en la referencia | Alex / Pere |
