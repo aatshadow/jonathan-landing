@@ -213,3 +213,46 @@ manda `Lead` además de `PageView`.
 Verificado el 17-09 con Chrome headless a 1440 y a 390 px: sin desbordamiento horizontal. ⚠️ Chrome
 headless no baja de ~500 px de ventana: para capturar a 390 hay que meter la página en un
 `<iframe width=390>` y capturar el marco.
+
+---
+
+# `/training` · el área de formación (18-09-2026)
+
+Tercera página del **mismo repo y proyecto**: `training.html` → **https://www.tradestartjv.com/training**.
+Es el «training area» que `/welcome` promete en el bloque BONUS: los mismos 4 módulos (Getting set up ·
+How I read the market · Entry, target and stop · Copying a trade from your phone), ahora como portal
+de curso: currículo a la izquierda, vídeo + entregables a la derecha, progreso en el navegador.
+Encargo de Alex (18-09): *«un portal de formación con vídeos entregables y documentos en cada una de
+las partes, en /training»*.
+
+## Cómo se mete un vídeo o un documento
+
+**Sólo se edita `training-content.js`.** Cada lección lleva `video` (id de Bunny Stream, librería
+`746352`, la del VSL), `minutes` y `docs: [{ title, url, kind }]`. Los PDF se suben a `assets/docs/`
+y se enlazan como `assets/docs/nombre.pdf`; un Drive/Notion va con su URL. Un `null` o un `[]` pinta
+el **placeholder marcado con dueño** (borde azul discontinuo), nunca un vídeo o documento falso.
+El `id` de una lección es lo que va en la URL (`/training#entry`): no se cambia una vez publicada.
+
+Hoy el único vídeo real es el VSL de la landing, puesto como «Welcome to TradeStart» (módulo 1).
+Si no debe estar ahí, `video: null`. Todo lo demás está **pending · Owner: Jonathan**.
+
+## Qué hace la página
+
+- Lección abierta en la URL (`#id`) → un enlace compartido abre esa lección. Sin hash, abre la
+  primera lección no completada.
+- «Mark as complete» + barra de progreso: `localStorage` (`ts:training:done`), por navegador.
+  **No hay login ni servidor**: la URL es pública (con `noindex`). Si algún día hay que cerrarla
+  a miembros, es una capa aparte (Chatterfy / contraseña de un solo uso como en Gemelos).
+- Player de Bunny sin autoplay (aquí se elige la lección; en el hero de la landing sí arranca).
+- El CTA de la cabecera reenvía la atribución al link de Chatterfy, como las dos landings.
+  `beacon()` manda `page: jonathan-training` y `lesson_view` / `lesson_complete` **sólo si**
+  `TS_BEACON` tiene webhook (hoy vacío = no dispara nada).
+- Móvil: el currículo se pliega bajo «Show lessons». Verificado a 390 px: 0 px de desborde.
+
+## Placeholders de `/training` pendientes de activo real
+
+| Qué | Dueño |
+|---|---|
+| Los vídeos de las 9 lecciones (todas menos «Welcome») + su duración | Jonathan |
+| Los documentos de cada lección (checklist, PDF, plantilla) | Jonathan |
+| Privacy Policy / Terms del pie (enlazan a `#`, como en `/welcome`) | Alex / Pere (legal) |

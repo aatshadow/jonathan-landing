@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TradeStart — Training</title>
+<meta name="description" content="The complete training on my methodology, module by module. Videos and downloads for members of the free TradeStart group.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   JONATHAN VERSTRAETEN · TradeStart · /training · el área de formación
+
+   Es el "training area" que /welcome promete en el bloque BONUS (17-09): los
+   mismos 4 módulos, ahora como portal: currículo a la izquierda, vídeo y
+   entregables a la derecha, progreso guardado en el navegador.
+
+   ESTILO     = el de /welcome: Inter, azul #2563EB, navy, blanco.
+   CONTENIDO  = training-content.js (lo único que se edita para meter vídeos
+                y documentos). Donde no hay activo, PLACEHOLDER marcado con
+                dueño — cero vídeos ni documentos inventados.
+   TRACKING   = la misma capa de atribución que las landings (query →
+                localStorage → link de Chatterfy) para el CTA de la cabecera.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1D4ED8;
+  --blue-light:#DBEAFE;
+  --navy:#0F172A;
+  --offwhite:#F4F5F7;
+  --hero:#F9F9F9;
+  --black:#000000;
+  --gray:#6B7280;
+  --gray-2:#9CA3AF;
+  --line:#E5E7EB;
+  --green:#16A34A;
+  --ph-line:rgba(37,99,235,.45);
+  --ph-bg:rgba(37,99,235,.06);
+  --max:1280px;
+  --side:320px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:#fff; color:var(--navy);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  min-height:100vh; display:flex; flex-direction:column;
+}
+img{max-width:100%; display:block}
+a{color:inherit}
+h1,h2,h3{margin:0; line-height:1.15; letter-spacing:-.02em; font-weight:800}
+p{margin:0}
+button{font-family:inherit}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 20px; width:100%}
+@media(min-width:640px){ .wrap{padding:0 32px} }
+.accent{color:var(--blue)}
+
+/* ── botón · el CTA de la cabecera (mismo que las landings) ──────────────── */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  background:var(--blue); color:#fff; text-decoration:none; border:0; cursor:pointer;
+  font-weight:700; font-size:15px; padding:14px 32px; border-radius:10px;
+  box-shadow:0 8px 28px rgba(37,99,235,.35);
+  transition:transform .15s ease, background .15s ease;
+}
+.btn:hover{transform:translateY(-2px); background:var(--blue-dark)}
+.btn:focus-visible{outline:3px solid var(--blue-light); outline-offset:3px}
+.btn-sm{font-size:13px; padding:10px 20px; border-radius:8px; box-shadow:0 4px 14px rgba(37,99,235,.3)}
+.btn-ghost{background:#fff; color:var(--navy); border:1px solid var(--line); box-shadow:none}
+.btn-ghost:hover{background:var(--hero); transform:none}
+.btn[disabled]{opacity:.45; cursor:default; transform:none}
+
+/* ── PLACEHOLDER · visible a propósito ────────────────────────────────────── */
+.ph{
+  border:2px dashed var(--ph-line); background:var(--ph-bg); border-radius:14px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:20px 16px; gap:6px; color:var(--navy);
+}
+.ph-tag{
+  font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--blue); border:1px solid var(--ph-line); background:rgba(37,99,235,.10);
+  padding:3px 10px; border-radius:99px;
+}
+.ph-what{font-size:14px; font-weight:600}
+.ph-who{font-size:12.5px; line-height:1.45; max-width:36ch; color:var(--gray)}
+
+/* ── cabecera ─────────────────────────────────────────────────────────────── */
+.hdr{background:#fff; border-bottom:1px solid #F3F4F6; position:sticky; top:0; z-index:20}
+.hdr-in{display:flex; align-items:center; justify-content:space-between; height:64px; gap:12px}
+.logo{display:flex; align-items:center; gap:8px; text-decoration:none; font-weight:800; font-size:20px; letter-spacing:-.03em; color:var(--navy)}
+.logo .mark{width:30px; height:30px; border-radius:8px; background:var(--blue); display:grid; place-items:center; color:#fff}
+.logo .mark svg{width:18px; height:18px}
+.logo .chip{font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--blue); background:var(--blue-light); padding:4px 9px; border-radius:99px; margin-left:6px}
+.hdr .btn{white-space:nowrap}
+.hdr .btn .long{display:none}
+@media(min-width:640px){ .hdr .btn .long{display:inline} .hdr .btn .short{display:none} }
+
+/* ── portada del training (título + progreso) ─────────────────────────────── */
+.top{background:var(--hero); border-bottom:1px solid var(--line); padding:28px 0}
+.top-in{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:16px 24px}
+.kicker{color:var(--blue); font-weight:600; font-size:13px; letter-spacing:.18em; text-transform:uppercase; margin-bottom:8px}
+.top h1{font-size:26px}
+@media(min-width:768px){ .top h1{font-size:32px} }
+.top .lead{color:var(--gray); font-size:15px; margin-top:6px; max-width:60ch}
+.prog{min-width:220px}
+.prog-lbl{display:flex; justify-content:space-between; font-size:12.5px; color:var(--gray); margin-bottom:6px}
+.prog-lbl b{color:var(--navy)}
+.prog-bar{height:8px; border-radius:99px; background:#E5E7EB; overflow:hidden}
+.prog-bar i{display:block; height:100%; width:0; background:var(--blue); border-radius:99px; transition:width .35s ease}
+
+/* ── el portal: currículo + lección ───────────────────────────────────────── */
+.portal{display:grid; grid-template-columns:1fr; gap:0; flex:1}
+@media(min-width:960px){ .portal{grid-template-columns:var(--side) 1fr} }
+.side{background:#fff; border-right:0; border-bottom:1px solid var(--line)}
+@media(min-width:960px){ .side{border-right:1px solid var(--line); border-bottom:0; position:sticky; top:64px; align-self:start; max-height:calc(100vh - 64px); overflow:auto} }
+.side-head{display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid var(--line)}
+.side-head b{font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--gray)}
+.side-toggle{appearance:none; border:1px solid var(--line); background:#fff; border-radius:8px; padding:6px 12px; font-size:13px; font-weight:600; cursor:pointer; color:var(--navy)}
+@media(min-width:960px){ .side-toggle{display:none} }
+.side-body{display:none}
+.side-body.open{display:block}
+@media(min-width:960px){ .side-body{display:block} }
+.mod{border-bottom:1px solid var(--line)}
+.mod-head{padding:14px 20px 8px}
+.mod-head .n{font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--blue)}
+.mod-head h3{font-size:15px; margin-top:2px}
+.mod-head .meta{font-size:12px; color:var(--gray-2); margin-top:2px}
+.les{
+  display:flex; align-items:center; gap:12px; width:100%; text-align:left;
+  padding:10px 20px; border:0; background:none; cursor:pointer; color:var(--navy);
+  font-size:14px; line-height:1.35;
+}
+.les:hover{background:var(--hero)}
+.les.is-active{background:var(--blue-light)}
+.les .ck{
+  width:20px; height:20px; border-radius:99px; border:2px solid var(--gray-2); flex:none;
+  display:grid; place-items:center; color:#fff;
+}
+.les .ck svg{width:11px; height:11px; display:none}
+.les.is-done .ck{background:var(--green); border-color:var(--green)}
+.les.is-done .ck svg{display:block}
+.les .t{flex:1; min-width:0}
+.les .t small{display:block; font-size:12px; color:var(--gray-2)}
+.les .t small.pend{color:var(--blue)}
+.les.is-done .t{color:var(--gray)}
+
+.main{padding:24px 20px 56px; min-width:0}
+@media(min-width:640px){ .main{padding:28px 32px 64px} }
+.crumb{font-size:12.5px; color:var(--gray); margin-bottom:10px}
+.crumb b{color:var(--blue); font-weight:600}
+.main h2{font-size:24px; margin-bottom:6px}
+@media(min-width:768px){ .main h2{font-size:30px} }
+.main .meta{font-size:13px; color:var(--gray); margin-bottom:18px}
+.main .meta .pend{color:var(--blue); font-weight:600}
+
+.player{
+  max-width:960px; background:#fff; border-radius:16px; padding:10px;
+  box-shadow:0 25px 50px -12px rgba(0,0,0,.18); border:1px solid #F3F4F6;
+}
+.player-in{border-radius:12px; overflow:hidden; background:#000; aspect-ratio:16/9; position:relative}
+.player-in iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+.player-in .ph{position:absolute; inset:0; border-radius:12px; background:rgba(37,99,235,.08); color:#fff}
+.player-in .ph-who{color:#D1D5DB}
+
+.summary{max-width:720px; color:#4B5563; font-size:16px; line-height:1.65; margin:22px 0 28px}
+
+.res{max-width:960px; margin-bottom:28px}
+.res h3{font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:var(--gray); margin-bottom:12px}
+.res-list{display:grid; gap:10px}
+@media(min-width:640px){ .res-list{grid-template-columns:1fr 1fr} }
+.doc{
+  display:flex; align-items:center; gap:14px; padding:14px 16px; text-decoration:none;
+  border:1px solid var(--line); border-radius:12px; background:#fff;
+  transition:border-color .15s ease, transform .15s ease;
+}
+.doc:hover{border-color:var(--blue); transform:translateY(-1px)}
+.doc .ic{width:40px; height:40px; border-radius:10px; background:var(--blue-light); color:var(--blue); display:grid; place-items:center; flex:none}
+.doc .ic svg{width:20px; height:20px}
+.doc .t{flex:1; min-width:0}
+.doc .t b{display:block; font-size:14px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.doc .t span{font-size:12px; color:var(--gray)}
+.doc .dl{font-size:12.5px; font-weight:600; color:var(--blue); flex:none}
+.res .ph{padding:22px 16px}
+
+.acts{display:flex; flex-wrap:wrap; gap:10px; align-items:center; max-width:960px}
+.acts .sp{flex:1}
+.done-btn{gap:8px}
+.done-btn.is-done{background:var(--green); box-shadow:0 8px 28px rgba(22,163,74,.3)}
+.done-btn.is-done:hover{background:#15803D}
+
+/* ── pie ──────────────────────────────────────────────────────────────────── */
+.risk{background:#fff; border-top:1px solid var(--line); padding:32px 0}
+.risk-lbl{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--gray); margin-bottom:12px}
+.risk p{font-size:13px; line-height:1.6; color:var(--gray); margin-bottom:10px; max-width:880px}
+.risk p b{color:var(--navy)}
+.ftr{background:var(--navy); color:#9CA3AF; padding:36px 0; border-top:1px solid rgba(255,255,255,.05)}
+.ftr-top{display:flex; flex-direction:column; align-items:center; gap:20px; text-align:center; margin-bottom:20px}
+@media(min-width:768px){ .ftr-top{flex-direction:row; align-items:flex-start; justify-content:space-between; text-align:left} }
+.ftr .logo{color:#fff}
+.ftr .tag{font-size:13px; margin-top:8px}
+.ftr-links{display:flex; gap:10px; font-size:13px}
+.ftr-links a{text-decoration:none}
+.ftr-links a:hover{color:#fff}
+.ftr-bot{border-top:1px solid rgba(255,255,255,.08); padding-top:20px; font-size:12px; text-align:center}
+.ftr-bot .disc{margin-top:8px; color:#6B7280; line-height:1.6; max-width:760px; margin-left:auto; margin-right:auto}
+
+@media(prefers-reduced-motion:reduce){ *{transition:none !important} html{scroll-behavior:auto} }
+</style>
+</head>
+<body id="top">
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="/welcome" aria-label="TradeStart">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span>
+      TradeStart <span class="chip">Training</span>
+    </a>
+    <a class="btn btn-sm js-cta" href="#" data-cta="training-header"><span class="long">Join Free Group Now</span><span class="short">Join the group</span></a>
+  </div>
+</header>
+
+<section class="top">
+  <div class="wrap top-in">
+    <div>
+      <p class="kicker">Members training</p>
+      <h1 id="trTitle">Complete training on my methodology.</h1>
+      <p class="lead" id="trIntro"></p>
+    </div>
+    <div class="prog" aria-live="polite">
+      <div class="prog-lbl"><span>Your progress</span><b id="progTxt">0 of 0 lessons</b></div>
+      <div class="prog-bar"><i id="progBar"></i></div>
+    </div>
+  </div>
+</section>
+
+<div class="portal wrap" style="padding:0">
+  <aside class="side" aria-label="Curriculum">
+    <div class="side-head">
+      <b id="sideCount">Curriculum</b>
+      <button type="button" class="side-toggle" id="sideToggle" aria-expanded="false" aria-controls="sideBody">Show lessons</button>
+    </div>
+    <nav class="side-body" id="sideBody"></nav>
+  </aside>
+
+  <main class="main" id="main">
+    <p class="crumb" id="crumb"></p>
+    <h2 id="lesTitle"></h2>
+    <p class="meta" id="lesMeta"></p>
+    <div class="player"><div class="player-in" id="player"></div></div>
+    <p class="summary" id="lesSummary"></p>
+    <section class="res" aria-labelledby="resH">
+      <h3 id="resH">Downloads &amp; resources</h3>
+      <div id="resList"></div>
+    </section>
+    <div class="acts">
+      <button type="button" class="btn btn-sm btn-ghost" id="prevBtn">← Previous</button>
+      <button type="button" class="btn btn-sm btn-ghost" id="nextBtn">Next lesson →</button>
+      <span class="sp"></span>
+      <button type="button" class="btn btn-sm done-btn" id="doneBtn">
+        <svg viewBox="0 0 10 8" width="11" height="9" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4l3 3 5-6"/></svg>
+        <span>Mark as complete</span>
+      </button>
+    </div>
+  </main>
+</div>
+
+<section class="risk">
+  <div class="wrap">
+    <span class="risk-lbl">Risk disclosure</span>
+    <p><b>Trading involves substantial risk of loss and is not suitable for every investor.</b> Nothing in this training is financial advice or a recommendation to buy or sell any instrument. It is educational content only. Past performance is not indicative of future results, and results vary and are not guaranteed. Only trade with money you can afford to lose.</p>
+    <p id="legalLine" hidden>This site is operated by <span id="legalEntity"></span>.</p>
+  </div>
+</section>
+
+<footer class="ftr" id="contact">
+  <div class="wrap">
+    <div class="ftr-top">
+      <div>
+        <a class="logo" href="/welcome" aria-label="TradeStart">
+          <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span>
+          TradeStart
+        </a>
+        <p class="tag">Every trade I take, posted in real time. Free.</p>
+      </div>
+      <div class="ftr-links">
+        <a href="/welcome">Join the group</a><span>·</span><a href="#">Privacy Policy</a><span>·</span><a href="#">Terms</a>
+      </div>
+    </div>
+    <div class="ftr-bot">
+      <p>© <span id="year"></span> TRADESTART. All rights reserved.</p>
+      <p class="disc">Trading involves risk. Past performance is not indicative of future results. This is educational content only, not financial advice. Results vary and are not guaranteed.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- El contenido: módulos, lecciones, vídeos y documentos. Es lo único que se edita. -->
+<script src="training-content.js"></script>
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   CAPA DE TRACKING · calcada de las landings (v1 y /welcome)
+   El CTA de la cabecera reenvía la atribución al link de Chatterfy, como allí.
+   ═══════════════════════════════════════════════════════════════════════════ */
+var TS_LINK   = 'https://tel.tradestartjv.com/2WFS9m3FRO';  /* campaña Chatterfy (13-07) */
+var TS_BEACON = '';                       /* webhook n8n · vacío = no dispara nada */
+var LEGAL_ENTITY = '';                    /* razón social · vacío = no se imprime */
+var ATTR_KEY = 'ts:attr';
+var DONE_KEY = 'ts:training:done';
+
+function readAttribution(){
+  var fromUrl = {}, stored = {}, any = false;
+  new URLSearchParams(location.search).forEach(function(v,k){ if (v){ fromUrl[k]=v; any=true; } });
+  try { stored = JSON.parse(localStorage.getItem(ATTR_KEY) || '{}'); } catch(e){}
+  if (any) { try { localStorage.setItem(ATTR_KEY, JSON.stringify(fromUrl)); } catch(e){} return fromUrl; }
+  return stored;
+}
+var ATTR = readAttribution();
+function destination(){
+  var url;
+  try { url = new URL(TS_LINK); } catch(e){ return TS_LINK; }
+  Object.keys(ATTR).forEach(function(k){ if (!url.searchParams.has(k)) url.searchParams.set(k, ATTR[k]); });
+  return url.toString();
+}
+function beacon(event, extra){
+  if (!TS_BEACON) return;
+  var p = { event:event, page:'jonathan-training', attribution:Object.keys(ATTR).length > 0, params:ATTR, ts:new Date().toISOString() };
+  if (extra) Object.keys(extra).forEach(function(k){ p[k]=extra[k]; });
+  try {
+    var b = new Blob([JSON.stringify(p)], {type:'application/json'});
+    if (navigator.sendBeacon) navigator.sendBeacon(TS_BEACON, b);
+    else fetch(TS_BEACON,{method:'POST',body:JSON.stringify(p),keepalive:true,headers:{'Content-Type':'application/json'}});
+  } catch(e){}
+}
+(function wireCta(){
+  document.querySelectorAll('.js-cta').forEach(function(el){
+    el.setAttribute('href', destination());
+    el.setAttribute('rel','noopener');
+    el.addEventListener('click', function(){ el.setAttribute('href', destination()); beacon('cta_click', { cta: el.getAttribute('data-cta') || 'unknown' }); });
+  });
+})();
+document.getElementById('year').textContent = new Date().getFullYear();
+if (LEGAL_ENTITY) { document.getElementById('legalEntity').textContent = LEGAL_ENTITY; document.getElementById('legalLine').hidden = false; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   EL PORTAL · pinta training-content.js
+   · la lección abierta va en la URL (#id) → un enlace compartido abre esa lección
+   · el progreso vive en localStorage (este navegador); sin login, sin servidor
+   · sin vídeo → placeholder con dueño; sin documentos → placeholder con dueño
+   ═══════════════════════════════════════════════════════════════════════════ */
+(function portal(){
+  var T = window.TRAINING;
+  if (!T || !T.modules) return;
+  var LIB = T.bunnyLibrary || '746352';
+  var OWNER = T.owner || 'Jonathan';
+
+  /* lista plana de lecciones, con su módulo y su número */
+  var flat = [];
+  T.modules.forEach(function(m, mi){
+    (m.lessons || []).forEach(function(l, li){ flat.push({ m:m, mi:mi, l:l, li:li, n:flat.length }); });
+  });
+  if (!flat.length) return;
+
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function loadDone(){ try { var a = JSON.parse(localStorage.getItem(DONE_KEY) || '[]'); return Array.isArray(a) ? a : []; } catch(e){ return []; } }
+  function saveDone(a){ try { localStorage.setItem(DONE_KEY, JSON.stringify(a)); } catch(e){} }
+  var done = loadDone();
+  function isDone(id){ return done.indexOf(id) !== -1; }
+
+  function fromHash(){
+    var id = (location.hash || '').replace(/^#/, '');
+    for (var i = 0; i < flat.length; i++) if (flat[i].l.id === id) return i;
+    /* sin hash: la primera lección no hecha; todas hechas → la primera */
+    for (var j = 0; j < flat.length; j++) if (!isDone(flat[j].l.id)) return j;
+    return 0;
+  }
+  var cur = fromHash();
+
+  /* ── cabecera de la portada + progreso ── */
+  document.getElementById('trTitle').textContent = T.title ? T.title + '.' : 'Training';
+  document.getElementById('trIntro').textContent = T.intro || '';
+  document.title = 'TradeStart — Training';
+  function paintProgress(){
+    var n = flat.filter(function(x){ return isDone(x.l.id); }).length;
+    document.getElementById('progTxt').textContent = n + ' of ' + flat.length + ' lessons';
+    document.getElementById('progBar').style.width = Math.round((n / flat.length) * 100) + '%';
+    document.getElementById('sideCount').textContent = T.modules.length + ' modules · ' + flat.length + ' lessons';
+  }
+
+  /* ── currículo ── */
+  var side = document.getElementById('sideBody');
+  function paintSide(){
+    var html = '';
+    T.modules.forEach(function(m, mi){
+      var ls = m.lessons || [];
+      var doneN = ls.filter(function(l){ return isDone(l.id); }).length;
+      var mins = ls.reduce(function(a, l){ return a + (l.minutes || 0); }, 0);
+      var pend = ls.some(function(l){ return l.minutes == null; });
+      html += '<section class="mod"><div class="mod-head"><span class="n">Module ' + (mi + 1) + '</span><h3>' + esc(m.title) + '</h3>' +
+              '<p class="meta">' + ls.length + (ls.length === 1 ? ' lesson' : ' lessons') + ' · ' + doneN + ' done' + (mins ? ' · ' + mins + ' min' : '') + (pend ? ' · duration pending' : '') + '</p></div>';
+      ls.forEach(function(l){
+        var idx = flat.findIndex(function(x){ return x.l.id === l.id; });
+        html += '<button type="button" class="les' + (idx === cur ? ' is-active' : '') + (isDone(l.id) ? ' is-done' : '') + '" data-i="' + idx + '" aria-current="' + (idx === cur ? 'true' : 'false') + '">' +
+                '<span class="ck"><svg viewBox="0 0 10 8" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4l3 3 5-6"/></svg></span>' +
+                '<span class="t">' + esc(l.title) + (l.video ? '<small>' + (l.minutes ? l.minutes + ' min' : 'video') + '</small>' : '<small class="pend">video pending</small>') + '</span></button>';
+      });
+      html += '</section>';
+    });
+    side.innerHTML = html;
+    side.querySelectorAll('.les').forEach(function(b){ b.addEventListener('click', function(){ go(+b.getAttribute('data-i'), true); }); });
+  }
+
+  /* ── la lección ── */
+  function paintLesson(){
+    var x = flat[cur], l = x.l, m = x.m;
+    document.getElementById('crumb').innerHTML = '<b>Module ' + (x.mi + 1) + '</b> · ' + esc(m.title) + ' · Lesson ' + (x.li + 1) + ' of ' + (m.lessons.length);
+    document.getElementById('lesTitle').textContent = l.title;
+    document.getElementById('lesMeta').innerHTML = (l.minutes ? l.minutes + ' min' : '<span class="pend">Duration pending</span>') + ' · ' + esc(m.blurb || '');
+    var player = document.getElementById('player');
+    if (l.video) {
+      player.innerHTML = '<iframe src="https://player.mediadelivery.net/embed/' + encodeURIComponent(LIB) + '/' + encodeURIComponent(l.video) + '?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture" allowfullscreen title="' + esc(l.title) + '"></iframe>';
+    } else {
+      player.innerHTML = '<div class="ph"><span class="ph-tag">Placeholder</span><span class="ph-what">Video pending</span><span class="ph-who">Owner: ' + esc(OWNER) + ' — the recording of “' + esc(l.title) + '”. Add its Bunny id in training-content.js.</span></div>';
+    }
+    document.getElementById('lesSummary').textContent = l.summary || '';
+    var res = document.getElementById('resList');
+    if (l.docs && l.docs.length) {
+      res.className = 'res-list';
+      res.innerHTML = l.docs.map(function(d){
+        return '<a class="doc" href="' + esc(d.url) + '" target="_blank" rel="noopener" download>' +
+               '<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="M9 15l3 3 3-3"/></svg></span>' +
+               '<span class="t"><b>' + esc(d.title) + '</b><span>' + esc(d.kind || 'Download') + '</span></span><span class="dl">Download</span></a>';
+      }).join('');
+    } else {
+      res.className = '';
+      res.innerHTML = '<div class="ph"><span class="ph-tag">Placeholder</span><span class="ph-what">Documents pending</span><span class="ph-who">Owner: ' + esc(OWNER) + ' — the downloads for this lesson (checklist, PDF, template). Add them in training-content.js.</span></div>';
+    }
+    document.getElementById('prevBtn').disabled = cur === 0;
+    document.getElementById('nextBtn').disabled = cur === flat.length - 1;
+    var db = document.getElementById('doneBtn');
+    db.className = 'btn btn-sm done-btn' + (isDone(l.id) ? ' is-done' : '');
+    db.querySelector('span').textContent = isDone(l.id) ? 'Completed' : 'Mark as complete';
+  }
+
+  function go(i, scroll){
+    cur = Math.max(0, Math.min(flat.length - 1, i));
+    var id = flat[cur].l.id;
+    if (location.hash !== '#' + id) history.replaceState(null, '', '#' + id);
+    paintSide(); paintLesson(); paintProgress();
+    if (scroll && window.innerWidth < 960) document.getElementById('main').scrollIntoView({ behavior:'smooth', block:'start' });
+    beacon('lesson_view', { lesson:id });
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', function(){ go(cur - 1, true); });
+  document.getElementById('nextBtn').addEventListener('click', function(){ go(cur + 1, true); });
+  document.getElementById('doneBtn').addEventListener('click', function(){
+    var id = flat[cur].l.id;
+    if (isDone(id)) done = done.filter(function(d){ return d !== id; });
+    else { done.push(id); beacon('lesson_complete', { lesson:id }); }
+    saveDone(done);
+    paintSide(); paintLesson(); paintProgress();
+  });
+  window.addEventListener('hashchange', function(){ var i = fromHash(); if (i !== cur) go(i, false); });
+
+  /* móvil: el currículo se pliega bajo un botón */
+  var tg = document.getElementById('sideToggle');
+  tg.addEventListener('click', function(){
+    var open = side.classList.toggle('open');
+    tg.setAttribute('aria-expanded', open ? 'true' : 'false');
+    tg.textContent = open ? 'Hide lessons' : 'Show lessons';
+  });
+
+  go(cur, false);
+  beacon('page_view');
+})();
+</script>
+</body>
+</html>
