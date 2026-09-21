@@ -202,6 +202,7 @@ h1 .box{display:inline-block; padding:2px 12px; border-radius:8px; border:2px so
 .laptop .lid{background:#111827; border-radius:16px 16px 0 0; border:10px solid #374151; box-shadow:0 25px 50px -12px rgba(0,0,0,.6); overflow:hidden; aspect-ratio:16/10; position:relative; padding:12px}
 .laptop .lid .cam{position:absolute; top:4px; left:50%; transform:translateX(-50%); width:8px; height:8px; border-radius:99px; background:#4B5563}
 .laptop .lid .ph{height:100%}
+.laptop .lid img{display:block; width:100%; height:100%; object-fit:cover; object-position:left top; border-radius:6px}
 .laptop .hinge{height:8px; background:#4B5563}
 .laptop .base{height:16px; background:#374151; border-radius:0 0 12px 12px; width:115%; margin-left:-7.5%; box-shadow:0 20px 25px -5px rgba(0,0,0,.4)}
 .acc{border-top:1px solid #374151}
@@ -463,7 +464,8 @@ h1 .box{display:inline-block; padding:2px 12px; border-radius:8px; border:2px so
     <div class="grid2s">
       <div class="laptop">
         <div class="lid"><span class="cam"></span>
-          <div class="ph"><span class="ph-tag">Placeholder</span><span class="ph-what">The training area</span><span class="ph-who">Screenshot of the modules as members see them</span></div>
+          <!-- Captura real de /training (21-09), reescalada y sin metadatos. -->
+          <img src="assets/training-area.jpg" width="1024" height="602" loading="lazy" alt="The TradeStart training area: 5 modules, 10 lessons, first lesson «Welcome to TradeStart» playing">
         </div>
         <div class="hinge"></div><div class="base"></div>
       </div>
