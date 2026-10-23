@@ -5,6 +5,8 @@
    Working Strategy», módulos 1-10 de su PDF, con sus 9 vídeos (Drive, carpeta
    1atMZq5ASZAOiOJldXz5kAXYBerKopZQ4). Los módulos 5, 9 y 10 no tienen vídeo:
    son lecciones de lectura (los apuntes debajo).
+   24-10-2026: los 9 vídeos pasan del Drive a Bunny Stream, librería propia de
+   Jonathan (788540). En la página ya no queda ningún enlace al Drive.
 
    Este fichero es lo ÚNICO que hay que tocar para meter un vídeo o un documento.
    La página (training.html) lo lee y se pinta sola.
@@ -31,7 +33,7 @@
     title: 'Forex Trading Course',
     intro: 'From zero to a working strategy, in 10 modules. Videos, notes and exercises, included free with the group.',
     owner: 'Jonathan',
-    bunnyLibrary: '746352',
+    bunnyLibrary: '788540',
 
     modules: [
       {
@@ -44,7 +46,7 @@
             id: 'welcome',
             title: 'Welcome to the course',
             minutes: 3,
-            video: 'drive:1lzhmTtiVN8YSYO-vxI7e29TSSyKhE94U',
+            video: '01528d9b-ce9e-4b31-a8d3-e19d4178591e',
             docs: [PDF],
             summary: 'An overview of the 10 modules, from the basics to the strategy I use on the charts every day, plus risk management and your trading journal.',
             notes:
@@ -57,7 +59,7 @@
             id: 'how-to-watch',
             title: 'How to watch the videos',
             minutes: 3,
-            video: 'drive:195omH3qG6BlwMU9P_OhemFUND2y4AH0P',
+            video: '747348f3-452b-48e1-bf8f-a0373ae4c1db',
             docs: [PDF],
             summary: 'The 3-step method to turn every video into a skill: watch, take notes, practice.',
             notes:
@@ -79,7 +81,7 @@
             id: 'markets-and-styles',
             title: 'Forex, crypto, futures & trading styles',
             minutes: 15,
-            video: 'drive:1_vJ1IpOsXyR3nt0IEwFLSe8zWqYordaW',
+            video: 'c859ee31-9031-4870-a2df-51ed6565c8a0',
             docs: [PDF],
             summary: 'Forex vs crypto, futures vs spot, leverage, order types, pips, and how to choose between scalping, intraday and swing trading.',
             notes:
@@ -126,7 +128,7 @@
             id: 'basic-concepts',
             title: 'Accumulation, distribution & the basics',
             minutes: 6,
-            video: 'drive:1AK0y1OVfAknKU9VsgE4SIl8RrQQBe5WN',
+            video: '09acf8e9-f622-40ab-a68d-64e12e166fc1',
             docs: [PDF],
             summary: 'How institutions build and unwind positions, long vs short, lot sizes, order types, pips and spread.',
             notes:
@@ -162,7 +164,7 @@
             id: 'tradingview',
             title: 'Candles, timeframes & drawing tools',
             minutes: 12,
-            video: 'drive:1u-Tli_OnWTKCkwNPOryLomYfVSWNeSKU',
+            video: 'acff692a-83f7-48ab-97f4-1bb339fecfaf',
             docs: [PDF, { title: 'TradingView (free account)', url: 'https://www.tradingview.com/', kind: 'Link' }],
             summary: 'A full TradingView walkthrough: reading candles, the key candlestick patterns, choosing a timeframe and marking up a chart.',
             notes:
@@ -236,7 +238,7 @@
             id: 'market-structure',
             title: 'Trends, break of structure & impulses',
             minutes: 26,
-            video: 'drive:1rp0-IyWxQ-m9lQEora9qlstj4cRPl8Tm',
+            video: 'f9523a74-4106-4121-83f1-e8c68caac310',
             docs: [PDF],
             summary: 'How to identify a bullish and a bearish structure, the break of structure (BOS), higher highs and lower lows, consolidation and impulse.',
             notes:
@@ -265,7 +267,7 @@
             id: 'simple-strategy',
             title: 'The strategy: Fibonacci, BOS & support/resistance',
             minutes: 19,
-            video: 'drive:1r9YFJ8K7Ix4-IxVsMT7IE1KbgutohGZg',
+            video: 'f5fd68d5-b9d9-4f99-925d-9789eb72bb0e',
             docs: [PDF],
             summary: 'The four steps I use to find trades: trend, retracement into the golden zone or a key level, confirmation candle and break of structure.',
             notes:
@@ -283,7 +285,7 @@
             id: 'gold-key-levels',
             title: 'Gold only: the $25 key levels',
             minutes: 11,
-            video: 'drive:10xFDZG1LfjYMNpT1LoZlJNagepnn3BQ6',
+            video: '1d59bab2-56e5-4afb-aba1-8e26593fc68e',
             docs: [PDF],
             summary: 'The $25 grid I use on gold (XAU/USD): how to build the zones and how to trade the breakout and retest.',
             notes:
@@ -311,7 +313,7 @@
             id: 'risk-management',
             title: 'Compounding, lot size & 1% risk',
             minutes: 10,
-            video: 'drive:1LpQPvveqwEC2P_5UJd1DJL7P1kHCoVZL',
+            video: '86be4187-f317-45fb-9953-e3e28ba60ec0',
             docs: [PDF, { title: 'Lot size calculator (myfxbook)', url: 'https://www.myfxbook.com/forex-calculators/position-size', kind: 'Link' }],
             summary: 'Why most traders fail on risk, not on strategy: compounding, consistency, sizing every position and starting at 1% per trade.',
             notes:
