@@ -1,0 +1,76 @@
+<!doctype html>
+<!-- /alta · quien cierra al alumno genera aquí su enlace personal al training (ver middleware.js) -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>TradeStart · Give training access</title>
+<style>
+  :root{--bg:#0b0b0c;--card:#151517;--line:#2a2a2e;--text:#f4f4f5;--muted:#a1a1aa;--blue:#2563eb;--ok:#22c55e;--err:#ef4444}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,sans-serif;display:grid;place-items:center;padding:24px 16px}
+  main{width:100%;max-width:460px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px}
+  h1{font-size:22px;margin:0 0 6px}
+  .sub{color:var(--muted);font-size:14px;line-height:1.55;margin:0 0 22px}
+  label{display:block;font-size:13px;font-weight:600;margin:0 0 6px}
+  input{width:100%;background:#0f0f11;border:1px solid var(--line);border-radius:10px;color:var(--text);font:inherit;padding:12px 14px;margin:0 0 16px}
+  input:focus{outline:none;border-color:var(--blue)}
+  button{width:100%;background:var(--blue);color:#fff;border:0;border-radius:10px;font:inherit;font-weight:600;padding:14px;cursor:pointer}
+  button:disabled{opacity:.6;cursor:wait}
+  .msg{font-size:14px;margin:14px 0 0;min-height:20px}
+  .msg.err{color:var(--err)}
+  .out{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:18px}
+  .out p{color:var(--muted);font-size:13px;line-height:1.5;margin:0 0 10px}
+  .link{word-break:break-all;background:#0f0f11;border:1px solid var(--line);border-radius:10px;padding:12px;font-size:13px;margin:0 0 12px}
+  .copy{background:var(--ok)}
+</style>
+</head>
+<body>
+<main>
+  <h1>Give training access</h1>
+  <p class="sub">For the person who closed the student. Each student gets a personal link: once they open it, the training stays unlocked on that device.</p>
+  <form id="f" autocomplete="off">
+    <label for="pw">Team password</label>
+    <input id="pw" type="password" required>
+    <label for="email">Student email</label>
+    <input id="email" type="email" required placeholder="student@email.com">
+    <label for="closer">Your name</label>
+    <input id="closer" type="text" placeholder="Who closed them">
+    <button id="go" type="submit">Create access link</button>
+    <p class="msg" id="msg"></p>
+  </form>
+  <div class="out" id="out">
+    <p>Send this link to the student (Telegram or WhatsApp). It must be opened within <b id="days">14</b> days.</p>
+    <div class="link" id="link"></div>
+    <button class="copy" id="copy" type="button">Copy link</button>
+  </div>
+</main>
+<script>
+  var f = document.getElementById('f'), msg = document.getElementById('msg'), go = document.getElementById('go');
+  try { document.getElementById('closer').value = localStorage.getItem('ts:closer') || ''; } catch (e) {}
+  f.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    msg.textContent = ''; msg.className = 'msg'; go.disabled = true;
+    var closer = document.getElementById('closer').value.trim();
+    try { localStorage.setItem('ts:closer', closer); } catch (e) {}
+    fetch('/api/issue', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ password: document.getElementById('pw').value, email: document.getElementById('email').value, closer: closer })
+    }).then(function (r) { return r.json(); }).then(function (d) {
+      go.disabled = false;
+      if (!d.link) { msg.textContent = d.error || 'Something went wrong'; msg.className = 'msg err'; return; }
+      document.getElementById('link').textContent = d.link;
+      document.getElementById('days').textContent = d.expiresInDays;
+      document.getElementById('out').style.display = 'block';
+      document.getElementById('email').value = '';
+    }).catch(function () { go.disabled = false; msg.textContent = 'Network error, try again'; msg.className = 'msg err'; });
+  });
+  document.getElementById('copy').addEventListener('click', function () {
+    var b = this;
+    navigator.clipboard.writeText(document.getElementById('link').textContent).then(function () { b.textContent = 'Copied ✓'; setTimeout(function () { b.textContent = 'Copy link'; }, 1500); });
+  });
+</script>
+</body>
+</html>
