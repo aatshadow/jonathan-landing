@@ -259,7 +259,7 @@ Si no debe estar ahí, `video: null`. Todo lo demás está **pending · Owner: J
 
 ## Acceso al training (28-10-2026) · sin base de datos
 - `/training`, `training-content.js` y `assets/docs/*` están cerrados por `middleware.js` (cookie firmada `ts_access`, 1 año).
-- Quien cierra al alumno entra en **/alta**, pone la contraseña de altas (vault `~/.core-secrets/ACCESOS.md`) y el email → enlace `/access?t=…` (caduca a los 14 días si no se abre).
+- Quien cierra al alumno entra en **/newmembers**, pone la contraseña de altas (vault `~/.core-secrets/ACCESOS.md`) y el email → enlace `/access?t=…` (caduca a los 14 días si no se abre).
 - Quitar un acceso: añadir el email a `BLOCKED_EMAILS` en Vercel (production) y volver a desplegar. Cambiar `ACCESS_SECRET` echa a todos.
 - Límite asumido: el enlace o la cookie se pueden compartir (no hay «una sesión por cuenta»). Si hace falta, se añade un Redis gratis de Vercel.
 - Alta de prueba ya emitida: `prueba-claude@tradestartjv.com`.

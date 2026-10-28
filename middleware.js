@@ -1,14 +1,14 @@
 /* ============================================================================
    ACCESO AL TRAINING · sin base de datos (28-10-2026)
    ----------------------------------------------------------------------------
-   Quien cierra al alumno entra en /alta, pone la contraseña de altas y el email
+   Quien cierra al alumno entra en /newmembers, pone la contraseña de altas y el email
    del alumno, y recibe un enlace /access?t=… para mandárselo. Al abrirlo, el
    navegador guarda una cookie firmada (1 año) y /training queda abierto.
 
    Variables de entorno (Vercel → Settings → Environment Variables):
      ACCESS_SECRET    clave con la que se firman enlaces y cookies (cambiarla
                       echa a TODOS los alumnos)
-     ADMIN_PASSWORD   contraseña de la página /alta
+     ADMIN_PASSWORD   contraseña de la página /newmembers
      BLOCKED_EMAILS   emails sin acceso, separados por comas (quitar un acceso
                       = añadirlo aquí y volver a desplegar)
    ========================================================================== */
@@ -75,7 +75,7 @@ const NO_ACCESS = `<!doctype html><html lang="en"><head><meta charset="utf-8"><m
 export default async function middleware(req) {
   const url = new URL(req.url);
 
-  // Emitir un enlace (lo llama la página /alta)
+  // Emitir un enlace (lo llama la página /newmembers)
   if (url.pathname === '/api/issue') {
     if (req.method !== 'POST') return json({ error: 'POST only' }, 405);
     let b = {};
